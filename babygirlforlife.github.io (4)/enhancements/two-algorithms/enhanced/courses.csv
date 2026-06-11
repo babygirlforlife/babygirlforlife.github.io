@@ -1,7 +1,0 @@
-CSCI100,Introduction to Computer Science
-CSCI200,Data Structures,CSCI100
-CSCI301,Introduction to Algorithms,CSCI200,CSCI100
-MATH201,Discrete Mathematics
-CSCI350,Operating Systems,CSCI200
-CSCI400,Large Software Development,CSCI301,MATH201
-CSCI499,Computer Science Capstone,CSCI400
