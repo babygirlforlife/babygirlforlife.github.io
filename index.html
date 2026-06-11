@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wuraola Akindele | CS 499 Computer Science Capstone ePortfolio</title>
+<meta name="description" content="CS 499 Capstone ePortfolio for Wuraola Akindele, B.S. Computer Science, Southern New Hampshire University. Professional self-assessment, code review, and three artifact enhancements in software design, algorithms, and databases.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101010;
+    --paper:#FFFFFF;
+    --gray:#6E6A63;
+    --hairline:#E8E5DF;
+    --gold:#A0822E;
+    --gold-soft:#F4EEDF;
+    --max:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;}
+  body{
+    font-family:'Archivo',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.65;
+    font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--hairline);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:64px;
+  }
+  .nav-name{
+    font-family:'Fraunces',serif;font-size:19px;font-weight:600;
+    letter-spacing:.01em;text-decoration:none;color:var(--ink);
+  }
+  .nav-name span{color:var(--gold);}
+  .nav-links{display:flex;gap:26px;list-style:none;}
+  .nav-links a{
+    text-decoration:none;color:var(--gray);
+    font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+    transition:color .18s;
+  }
+  .nav-links a:hover{color:var(--ink);}
+  @media(max-width:860px){.nav-links{display:none;}}
+
+  /* ---------- Hero ---------- */
+  header.hero{padding:108px 0 84px;border-bottom:1px solid var(--hairline);}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:26px;
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(40px,6.2vw,72px);
+    line-height:1.06;letter-spacing:-.015em;
+    max-width:880px;
+  }
+  .hero h1 em{font-style:italic;font-weight:400;}
+  .hero-sub{
+    margin-top:34px;max-width:620px;color:var(--gray);font-size:18px;
+  }
+  .hero-meta{
+    margin-top:46px;display:flex;flex-wrap:wrap;gap:14px 40px;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--ink);
+  }
+  .hero-meta span b{font-weight:500;color:var(--gray);display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
+
+  /* ---------- Sections ---------- */
+  section{padding:84px 0;border-bottom:1px solid var(--hairline);}
+  .sec-head{margin-bottom:44px;}
+  .sec-head h2{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacing:-.01em;
+    margin-top:14px;
+  }
+  .prose{max-width:760px;}
+  .prose p{margin-bottom:22px;}
+  .prose h3{
+    font-family:'Fraunces',serif;font-weight:600;font-size:22px;
+    margin:40px 0 14px;
+  }
+
+  /* ---------- Code review ---------- */
+  .video-frame{
+    position:relative;width:100%;max-width:880px;aspect-ratio:16/9;
+    background:var(--ink);border:1px solid var(--hairline);
+  }
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .video-caption{
+    margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gray);
+  }
+  .video-caption a{color:var(--gold);}
+
+  /* ---------- Enhancement articles ---------- */
+  .enh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:start;}
+  @media(max-width:900px){.enh{grid-template-columns:1fr;gap:36px;}}
+  .enh + .enh{margin-top:84px;padding-top:84px;border-top:1px solid var(--hairline);}
+  .enh-label{
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+  }
+  .enh h3{
+    font-family:'Fraunces',serif;font-weight:500;font-size:30px;line-height:1.18;margin-bottom:8px;
+  }
+  .enh .artifact-line{
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gray);margin-bottom:22px;
+  }
+  .enh p{margin-bottom:18px;}
+
+  /* the signature: diff ledger */
+  .ledger{
+    border:1px solid var(--hairline);
+    font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:1.5;
+  }
+  .ledger-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:12px 18px;border-bottom:1px solid var(--hairline);
+    background:var(--gold-soft);
+    font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
+  }
+  .ledger ul{list-style:none;padding:14px 18px;}
+  .ledger li{
+    padding:7px 0;display:flex;gap:12px;align-items:baseline;
+    border-bottom:1px dashed var(--hairline);
+  }
+  .ledger li:last-child{border-bottom:0;}
+  .ledger li::before{content:"+";color:var(--gold);font-weight:500;flex:0 0 auto;}
+  .ledger code{background:none;font-family:inherit;}
+
+  .enh-links{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    display:inline-block;text-decoration:none;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.06em;
+    padding:10px 16px;border:1px solid var(--ink);color:var(--ink);
+    transition:background .18s,color .18s;
+  }
+  .btn:hover{background:var(--ink);color:#fff;}
+  .btn.gold{border-color:var(--gold);color:var(--gold);}
+  .btn.gold:hover{background:var(--gold);color:#fff;}
+
+  .outcome-tags{margin-top:22px;display:flex;flex-wrap:wrap;gap:8px;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.05em;
+    padding:5px 10px;border:1px solid var(--hairline);color:var(--gray);
+  }
+
+  /* ---------- Outcomes table ---------- */
+  .outcomes{max-width:880px;}
+  .outcome-row{
+    display:grid;grid-template-columns:64px 1fr;gap:28px;
+    padding:26px 0;border-bottom:1px solid var(--hairline);
+  }
+  .outcome-row:last-child{border-bottom:0;}
+  .outcome-num{
+    font-family:'Fraunces',serif;font-size:30px;font-weight:500;color:var(--gold);
+  }
+  .outcome-row h4{font-size:16.5px;font-weight:600;margin-bottom:6px;}
+  .outcome-row p{color:var(--gray);font-size:15.5px;}
+
+  /* ---------- Footer ---------- */
+  footer{padding:70px 0 90px;}
+  footer .f-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;align-items:flex-end;}
+  footer .f-name{font-family:'Fraunces',serif;font-size:26px;font-weight:500;}
+  footer .f-meta{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--gray);line-height:2;}
+  footer a{color:var(--gold);text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="nav-name" href="#top">Wuraola Akindele</a>
+    <ul class="nav-links">
+      <li><a href="#self-assessment">Self-Assessment</a></li>
+      <li><a href="#code-review">Code Review</a></li>
+      <li><a href="#enhancements">Enhancements</a></li>
+      <li><a href="#outcomes">Outcomes</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">CS 499 &middot; Computer Science Capstone &middot; Southern New Hampshire University</p>
+    <h1>From working code<br>to <em>professional</em> code.</h1>
+    <p class="hero-sub">I am Wuraola Akindele, a computer science graduate building toward hybrid full stack development and project management roles. This ePortfolio presents my professional self-assessment, my capstone code review, and three enhanced artifacts spanning software design, algorithms, and databases.</p>
+    <div class="hero-meta">
+      <span><b>Program</b>B.S. Computer Science</span>
+      <span><b>Artifacts</b>Travlr Getaways (CS 465) &middot; ABCU Advising (CS 300)</span>
+      <span><b>Enhancements</b>Software Design &middot; Algorithms &middot; Databases</span>
+    </div>
+  </div>
+</header>
+
+<section id="self-assessment">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">01 &middot; Introduction</p>
+      <h2>Professional Self-Assessment</h2>
+    </div>
+    <div class="prose reveal">
+      <p>When I started the Computer Science program at Southern New Hampshire University, I was already running a business. I own a luxury event design and planning company, and for most of this degree I was writing code in the mornings and planning celebrations in the evenings. That balance shaped how I think about software. Every assignment in this program sat next to a real deadline, a real client, and a real budget, and I learned early that good engineering is mostly about making smart decisions under constraints.</p>
+      <p>Completing this coursework and building this ePortfolio helped me define what I actually want from my career. I am positioning myself for hybrid roles that combine full stack development with technical project management, ideally at a product company where I can own delivery from requirements through release. The capstone asked me to look back at my own work with a critical eye, decide what was worth improving, plan those improvements, and then ship them on a schedule. That cycle of review, plan, build, and verify is exactly the work of a technical project manager, and it is the strongest evidence I can offer that I am ready for that work.</p>
+      <h3>Collaborating in a team environment</h3>
+      <p>Collaboration in software is structured, and I have come to appreciate that structure. The code review I produced for this capstone follows the same format I would use on a real team: walk through existing functionality, analyze the code honestly, and present a plan that stakeholders can react to before any code changes. Courses like CS 250 taught me how agile ceremonies, sprint planning, and retrospectives turn a group of individuals into a delivery team. My business gives me daily practice as well. Coordinating vendors, venues, and clients toward a single event date is sprint planning by another name, and it taught me to communicate status early and surface risks before they become emergencies.</p>
+      <h3>Communicating with stakeholders</h3>
+      <p>I write and present for different audiences constantly, and I treat that as a core technical skill rather than a soft one. In CS 370 I wrote a GDPR white paper aimed at an executive audience, which meant translating regulatory and technical detail into business consequences. My capstone code review is aimed at peers and a manager, so it explains not just what the code does but why each enhancement is worth the time. With my own clients, I translate logistics and contracts into plain language every week. The common thread is the same: meet the audience where they are, and never hide a decision behind jargon.</p>
+      <h3>Data structures and algorithms</h3>
+      <p>CS 300 was the course that made algorithmic trade-offs concrete for me. I built an advising program for ABCU around a binary search tree, and in the capstone I returned to it with sharper eyes. Loading sorted course data into a plain BST degrades it into a linked list, so I rebuilt construction median-first to keep the tree balanced and searches logarithmic. I added depth-first search to detect circular prerequisites, which the original code never considered, and I replaced linear prerequisite scans with an unordered set for constant time validation. Each change was a deliberate trade-off between memory, speed, and clarity, and being able to reason about those trade-offs out loud is what separates writing code from designing solutions.</p>
+      <h3>Software engineering and databases</h3>
+      <p>CS 465 had me build Travlr Getaways, a full MEAN stack travel application with an Express API, a MongoDB data layer, and an Angular single page admin interface. Two of my three capstone enhancements live in this artifact. On the engineering side I consolidated fragmented routing, moved the API to async and await through a shared handler, and centralized error handling so failures are consistent and observable. On the database side I corrected schema types so numeric fields are actually numeric, added validation middleware so bad data is rejected at the boundary, built aggregation pipeline endpoints that compute statistics inside MongoDB rather than in application code, and added a compound index with timestamps to support the new query patterns. Working across one artifact at both the engineering and data layers showed me how design decisions ripple through an entire stack.</p>
+      <h3>Security</h3>
+      <p>The program built a security mindset in me that I now apply by default. In the Travlr enhancement I removed a hardcoded JWT secret and made the application refuse to start without one supplied through the environment, because a missing secret should be a loud failure rather than a quiet vulnerability. I added a mass-assignment whitelist so clients can only set the fields I intend them to set, and server side validation so the database never has to trust the client. The habit underneath all of it is simple: assume input is hostile, assume secrets leak, and design so that mistakes fail safely.</p>
+      <h3>How the artifacts fit together</h3>
+      <p>This portfolio contains two artifacts carrying three enhancements. Travlr Getaways demonstrates breadth: a single full stack application improved at the software engineering layer and again at the database layer, with security woven through both. The ABCU advising program demonstrates depth: focused algorithmic reasoning in C++ where every line answers to performance and correctness. Together they show that I can design a system, build it, secure it, measure it, and explain it to the people who depend on it. The sections that follow present the code review that planned this work and the narratives that reflect on what each enhancement taught me.</p>
+    </div>
+  </div>
+</section>
+
+<section id="code-review">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">02 &middot; Milestone One</p>
+      <h2>Informal Code Review</h2>
+    </div>
+    <div class="video-frame reveal" style="display:flex;align-items:center;justify-content:center;background:#FAF8F3;border:1px solid var(--hairline);">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);">Code review video forthcoming</p>
+    </div>
+  </div>
+</section>
+
+<section id="enhancements">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">03 &middot; Artifacts &amp; Narratives</p>
+      <h2>Three Enhancements</h2>
+    </div>
+
+    <!-- Enhancement One -->
+    <article class="enh reveal">
+      <div>
+        <p class="enh-label">Enhancement One &middot; Software Design &amp; Engineering</p>
+        <h3>Travlr Getaways: hardening a full stack travel platform</h3>
+        <p class="artifact-line">Artifact: CS 465 Full Stack Development &middot; MEAN stack &middot; Node, Express, MongoDB, Angular</p>
+        <p>Travlr Getaways is a travel booking application I built in CS 465, with a customer facing site, an Express REST API, and an Angular admin SPA. The original worked, but it carried the habits of a course project: duplicated route logic, callback style handlers, inconsistent errors, and a JWT secret sitting in source code.</p>
+        <p>The enhancement refactored the API into a consistent, secure, production shaped service. The narrative reflects on why centralizing failure paths and forcing secrets into the environment changes the character of an application, not just its style.</p>
+        <div class="enh-links">
+          <a class="btn gold" href="enhancements/one-software-design/">Narrative + Code</a>
+          <a class="btn" href="enhancements/one-software-design/travlr_original_full.zip">Original (zip)</a>
+          <a class="btn" href="enhancements/one-software-design/enhanced/app_api/">Enhanced API</a>
+        </div>
+        <div class="outcome-tags">
+          <span class="tag">Outcome 2 &middot; Communication</span>
+          <span class="tag">Outcome 4 &middot; Techniques &amp; Tools</span>
+          <span class="tag">Outcome 5 &middot; Security</span>
+        </div>
+      </div>
+      <div class="ledger">
+        <div class="ledger-head"><span>git diff</span><span>software design</span></div>
+        <ul>
+          <li><code>Consolidated fragmented routes into a single trips.js router</code></li>
+          <li><code>Migrated callbacks to async/await via a shared asyncHandler</code></li>
+          <li><code>Fixed silent 404 path; unmatched routes now respond correctly</code></li>
+          <li><code>Centralized errorHandler middleware for consistent failures</code></li>
+          <li><code>config/index.js requires JWT_SECRET from env, no fallback</code></li>
+          <li><code>dotenv configuration for environment separation</code></li>
+          <li><code>Mass-assignment whitelist on create and update payloads</code></li>
+          <li><code>Angular environment.ts so API URLs are not hardcoded</code></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Enhancement Two -->
+    <article class="enh reveal">
+      <div>
+        <p class="enh-label">Enhancement Two &middot; Algorithms &amp; Data Structures</p>
+        <h3>ABCU Advising: balancing the tree, catching the cycles</h3>
+        <p class="artifact-line">Artifact: CS 300 Data Structures &amp; Algorithms &middot; C++ &middot; Binary Search Tree</p>
+        <p>The ABCU Advising Program loads a course catalog from CSV into a binary search tree and lets advisors search courses and print prerequisites in order. The original implementation was correct for happy paths but fragile everywhere else: sorted input degraded the tree to O(n) searches, circular prerequisites would never be detected, and prerequisite validation scanned linearly.</p>
+        <p>The enhancement turned a passing assignment into a defensible piece of algorithm design, where every structure is chosen for a measurable reason and every input is treated as untrusted.</p>
+        <div class="enh-links">
+          <a class="btn gold" href="enhancements/two-algorithms/">Narrative + Code</a>
+          <a class="btn" href="enhancements/two-algorithms/original/">Original</a>
+          <a class="btn" href="enhancements/two-algorithms/enhanced/">Enhanced</a>
+        </div>
+        <div class="outcome-tags">
+          <span class="tag">Outcome 3 &middot; Algorithmic Solutions</span>
+          <span class="tag">Outcome 4 &middot; Techniques &amp; Tools</span>
+        </div>
+      </div>
+      <div class="ledger">
+        <div class="ledger-head"><span>git diff</span><span>algorithms</span></div>
+        <ul>
+          <li><code>Median-first construction keeps the BST balanced: O(log n) search</code></li>
+          <li><code>DFS cycle detection flags circular prerequisite chains</code></li>
+          <li><code>unordered_set gives O(1) prerequisite validation</code></li>
+          <li><code>Uppercase normalization makes course lookups case-insensitive</code></li>
+          <li><code>getline + stoi menu input survives invalid entries</code></li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Enhancement Three -->
+    <article class="enh reveal">
+      <div>
+        <p class="enh-label">Enhancement Three &middot; Databases</p>
+        <h3>Travlr Getaways: pushing the work into MongoDB</h3>
+        <p class="artifact-line">Artifact: CS 465 Full Stack Development &middot; MongoDB &middot; Mongoose, aggregation pipelines</p>
+        <p>The third enhancement returned to Travlr Getaways at the data layer. The original schema stored prices and durations as strings, accepted any payload the client sent, and answered every analytical question by pulling documents into application code.</p>
+        <p>The enhancement corrected the schema so the data means what it says, added validation middleware so the database boundary defends itself, and introduced aggregation pipeline endpoints that compute trip statistics and upcoming departures inside MongoDB, supported by a compound index and timestamps. The narrative reflects on treating the database as an active participant in the application rather than a passive store.</p>
+        <div class="enh-links">
+          <a class="btn gold" href="enhancements/three-databases/">Narrative + Code</a>
+          <a class="btn" href="enhancements/three-databases/original/">Original</a>
+          <a class="btn" href="enhancements/three-databases/enhanced/">Enhanced</a>
+        </div>
+        <div class="outcome-tags">
+          <span class="tag">Outcome 1 &middot; Collaborative Environments</span>
+          <span class="tag">Outcome 4 &middot; Techniques &amp; Tools</span>
+          <span class="tag">Outcome 5 &middot; Security</span>
+        </div>
+      </div>
+      <div class="ledger">
+        <div class="ledger-head"><span>git diff</span><span>databases</span></div>
+        <ul>
+          <li><code>Schema corrections: length and perPerson String &rarr; Number</code></li>
+          <li><code>validateTrip.js middleware rejects malformed payloads</code></li>
+          <li><code>GET /api/trips/stats aggregation pipeline endpoint</code></li>
+          <li><code>GET /api/trips/upcoming aggregation pipeline endpoint</code></li>
+          <li><code>Compound index + timestamps for new query patterns</code></li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="outcomes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">04 &middot; Alignment</p>
+      <h2>Course Outcomes</h2>
+    </div>
+    <div class="outcomes reveal">
+      <div class="outcome-row">
+        <div class="outcome-num">1</div>
+        <div>
+          <h4>Build collaborative environments that enable diverse audiences to support decision making</h4>
+          <p>Demonstrated through the code review structured for team decision making, contextual in-code commenting across all three enhancements, and database changes documented for future collaborators.</p>
+        </div>
+      </div>
+      <div class="outcome-row">
+        <div class="outcome-num">2</div>
+        <div>
+          <h4>Deliver professional quality oral, written, and visual communications adapted to audience and context</h4>
+          <p>Demonstrated through the code review video for a peer and manager audience, the milestone narratives, this ePortfolio, and the professional self-assessment.</p>
+        </div>
+      </div>
+      <div class="outcome-row">
+        <div class="outcome-num">3</div>
+        <div>
+          <h4>Design and evaluate computing solutions using algorithmic principles while managing trade-offs</h4>
+          <p>Demonstrated through median-first balanced BST construction, DFS cycle detection, and constant time set lookups, each chosen against explicit time and memory trade-offs.</p>
+        </div>
+      </div>
+      <div class="outcome-row">
+        <div class="outcome-num">4</div>
+        <div>
+          <h4>Use well-founded and innovative techniques, skills, and tools in computing practice</h4>
+          <p>Demonstrated through async/await refactoring, centralized error handling, environment based configuration, Mongoose validation middleware, aggregation pipelines, and compound indexing.</p>
+        </div>
+      </div>
+      <div class="outcome-row">
+        <div class="outcome-num">5</div>
+        <div>
+          <h4>Develop a security mindset that anticipates adversarial exploits and protects data and resources</h4>
+          <p>Demonstrated through removing the hardcoded JWT secret, requiring secrets from the environment, mass-assignment whitelisting, and server side payload validation at the database boundary.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap f-grid">
+    <div>
+      <p class="f-name">Wuraola Akindele</p>
+      <p class="f-meta">B.S. Computer Science, SNHU<br>Full stack development &middot; Technical project management</p>
+    </div>
+    <div class="f-meta" style="text-align:right;">
+      <a href="https://github.com/babygirlforlife">github.com/babygirlforlife</a><br>
+      <a href="self-assessment/">Professional Self-Assessment (Word)</a><br>
+      CS 499 Capstone &middot; 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
